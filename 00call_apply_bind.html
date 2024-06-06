@@ -23,6 +23,8 @@
     <p id="coupleset">Who does Jim Halpert and Michael Scott date on the office?</p>
     <button id="button2"> Answer </button>
 
+    <div id="answer"></div>
+
     <script>
 
         let partner = "Katy Moore";
@@ -34,8 +36,30 @@
         }
 
         function couplecall() {
-            document.getElementById("coupleset").innerHTML = "Jim Halpert and Michael Scott dated " + partner;
+            // document.getElementById("coupleset").innerHTML = "Jim Halpert and Michael Scott dated " + partner;
+
+            // Call() : Allows execution of a function's repeatable code, with additions/modifications to the data source each time. functionName.call
+            var person1 = {firstName: 'Jim', lastName: 'Halpert'};
+            var person2 = {firstName: 'Pam', lastName: 'Beesly'};
+            var person3 = {firstName: 'Michael', lastName: 'Scott'};
+            var person4 = {firstName: 'Jan', lastName: 'Levinson'};
+
+            // fucntion(parameter or data passed tp the contents of the function) {}
+            function say(thecouple) {
+                document.write(thecouple + ' ' + this.firstName + " " + this.lastName);
+            }
+            // Dot Syntax: call(variable, "string precursor")
+            say.call(person1, 'The character '); // The character NAME
+            say.call(person2, ' dated'); // dated NAME
+            document.write('<br>');
+            // document.write('The character Michael dated Jan');
+            // method.call(variable, string);
+            say.call(person3, 'The main character ');
+            say.call(person4,  " dated"); 
+    
         }
+
+        
 
         btn.addEventListener("click", couple);
         btn2.addEventListener("click", couplecall);
