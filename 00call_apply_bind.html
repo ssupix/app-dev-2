@@ -18,15 +18,28 @@
     </ul>
 
     <p id="couple">Who does Jim Halpert date on the office?</p>
-    <button onclick="couple()"> Answer </button>
+    <button id="button"> Answer </button>
+
+    <p id="coupleset">Who does Jim Halpert and Michael Scott date on the office?</p>
+    <button id="button2"> Answer </button>
 
     <script>
-        
-        let partner = "Katy Moore"
+
+        let partner = "Katy Moore";
+        const btn = document.getElementById("button");
+        const btn2 = document.getElementById("button2");
 
         function couple() {
-            document.getElementById("couple").innerHTML = "Jim Halpert dated" + partner;
+            document.getElementById("couple").innerHTML = "Jim Halpert dated " + partner;
         }
+
+        function couplecall() {
+            document.getElementById("coupleset").innerHTML = "Jim Halpert and Michael Scott dated " + partner;
+        }
+
+        btn.addEventListener("click", couple);
+        btn2.addEventListener("click", couplecall);
+
 
     </script>
 
