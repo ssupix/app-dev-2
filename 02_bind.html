@@ -3,14 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Bind</title>
 </head>
 
 <style> body {font-family: Helvetica;}</style>
 
 <body>
 
-    <p>The Bind Method</p>
+    <h1>The Bind Method</h1>
+
+    <ul>
+        <li>With the bind() method, an object can borrow a method from another object, often based on self of "this"</li>
+        <li>"this" always refers to an object</li>
+        <li>"this" refers to an object which calls the function it contains</li>
+    </ul>
     
+    <p id="thisCar" onclick="pickCar()"> What is Porsche most popular model? </p>
+
+    <script>
+
+        var car = {
+            model: "911 Carrera GTS",
+            make: "Porsche",
+            color: "Pink",
+
+            displayDetails: function() {
+                document.write(this.make + " " + this.color + " " +this.model)
+            }
+        }
+
+        // The following works; dot syntax but is limited
+        // car.displayDetails();
+
+        // But this doesn't work: applying a method and set of properties
+        // var myCarDetails = car.displayDetails;
+        // myCarDetails();
+
+        // This is where we use bind, in reference to "this" parent object, to access both methods and properties
+        // var container = objectVar.function.bind(objectVar)
+        var myCarDetails = car.displayDetails.bind(car);
+        myCarDetails();
+
+    </script>
+
 </body>
 </html>
